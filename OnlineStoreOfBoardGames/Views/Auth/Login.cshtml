@@ -1,0 +1,13 @@
+﻿@model OnlineStoreOfBoardGames.Models.Auth.AuthViewModel
+
+<form method="post">
+    <div>
+        @Html.TextBoxFor(x => x.Login, new { placeholder = "login" })
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "password" })
+    </div>
+    <div>
+        <input type="submit" value="Логин" />
+    </div>
+</form>

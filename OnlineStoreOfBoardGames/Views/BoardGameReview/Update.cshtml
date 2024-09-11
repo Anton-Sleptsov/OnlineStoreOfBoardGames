@@ -1,0 +1,35 @@
+﻿@model OnlineStoreOfBoardGames.Models.BoardGameReview.BoardGameUpdateReviewViewModel
+@using OnlineStoreOfBoardGames.LocalizationResources.BoardGame
+
+@section Title {
+    <link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+    <title>@BoardGame_CreateAndUpdateReview.TitleUpdate</title>
+}
+
+@section Style {
+    <link href="/css/BoardGame/forms.css" rel="stylesheet" />
+}
+
+<div class="board-game-or-review-form">
+    <h2>
+        @BoardGame_CreateAndUpdateReview.TitleOfPageUpdate "@Model.BoardGameName":
+    </h2>
+    <form method="post">
+        @Html.HiddenFor(review => review.Id)
+        @Html.HiddenFor(review => review.BoardGameId)
+        @Html.HiddenFor(review => review.BoardGameName)
+        <div>
+            @Html.TextAreaFor(review => review.Text, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateReview.Text,
+                    @class = "foarm-field"
+                })
+            @Html.ValidationMessageFor(review => review.Text)
+        </div>
+        <div>
+            <input class="button-send" type="submit" value="@BoardGame_CreateAndUpdateReview.UpdateButton" />
+        </div>
+    </form>
+</div>
+
+

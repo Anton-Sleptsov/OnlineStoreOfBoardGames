@@ -1,0 +1,91 @@
+﻿.board-game-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.board-game-item:hover {
+    background-color: #f1f1f1;
+}
+
+.board-game-title {
+    color: #faa71a;
+    text-decoration: none;
+}
+
+.board-game-title:hover {
+    text-decoration: underline;
+}
+
+.delete-link {
+    color: red;
+    text-decoration: none;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.delete-link:hover {
+    text-decoration: underline;
+}
+
+.highlighted-button {
+    color: white;
+    background-color: #ef6747;
+    border: #a5a5a5 solid 1px;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.highlighted-button:hover {
+    background-color: #dd7e68;
+}
+
+button {
+    cursor: pointer;
+}
+
+.card-button {
+    margin-left: 20px;
+}
+
+.text-dark {
+    color: #343a40;
+}
+
+.delete-and-add {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.vk-share {
+    display: flex;
+    justify-content: space-between;
+}

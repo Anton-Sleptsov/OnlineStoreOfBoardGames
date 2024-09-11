@@ -1,0 +1,30 @@
+﻿services:
+  portalabouteverything:
+    image: antonsleptsov/portal:first
+    environment:
+      - DB_HOST=db:5432
+      - DB_USER=testuser
+      - DB_PASSWORD=testpassword
+      - DB_DBNAME=testdb
+    ports:
+      - 8080:8080
+    networks:
+      - portal-network-2
+    depends_on:
+      - db
+    restart: unless-stopped
+    
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=testpassword
+      - POSTGRES_DB=testdb
+    networks:
+      - portal-network-2
+    restart: unless-stopped
+    volumes:
+      - "/home/anton/home/volumes/portalDbVolume:/var/lib/postgresql/data"
+        
+networks:
+  portal-network-2:

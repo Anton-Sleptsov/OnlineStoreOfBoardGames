@@ -1,0 +1,125 @@
+﻿.board-game-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.board-games {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.board-game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.board-game-item.active-board-game {
+    border: 2px solid #ef6747;
+}
+
+.board-game-item:hover {
+    background-color: #f1f1f1;
+}
+
+.board-game-title {
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.update-and-delete {
+    display: none;
+    gap: 10px;
+}
+
+.edit-link, .delete-link {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+.add-board-game,
+.favorite-board-game {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-board-game-link,
+.favorite-board-game-link {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ef6747;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.add-board-game-link:hover,
+.favorite-board-game-link:hover {
+    background-color: #dd7e68;
+    color: #fff;
+}
+
+.top-title{
+    margin-top: 50px;
+}
+
+.top-board-games {
+    margin-top: 30px;
+}
+
+.top-icon {
+    max-height: 36px;
+}
+
+.top-board-game-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+}
+
+.top-board-game-item:hover {
+    background-color: #f9f9f9;
+}
+
+.top-board-game-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: #333;
+    text-decoration: none;
+}
+
+.like-count {
+    font-size: 14px;
+    color: #666;
+}

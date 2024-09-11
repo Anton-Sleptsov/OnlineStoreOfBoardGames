@@ -1,0 +1,25 @@
+﻿@model OnlineStoreOfBoardGames.Models.User.IndexViewModel
+
+<div>
+    Users
+    @foreach (var user in Model.Users)
+    {
+        <div class="user">
+            <form method="post" action="/User/UpdatePermissions">
+                <input  type="hidden" name="userId" value="@user.Id"/>
+                @user.Name [@user.Id]
+                @foreach (var permission in Model.AvailablePermissions)
+                {
+                    <label>
+                        @permission.ToString()
+                        <input type="checkbox"
+                               name="permissions[@((int)permission)]"
+                               value="@((int)permission)"
+                        @(user.Permission.HasFlag(permission) ? "checked='checked'" : "") />
+                    </label>
+                }
+                <input type="submit" value="обновить" />
+            </form>
+        </div>
+    }
+</div>

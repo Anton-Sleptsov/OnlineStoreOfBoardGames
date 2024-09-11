@@ -1,0 +1,18 @@
+﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["BestBoardGameApi/BestBoardGameApi.csproj", "BestBoardGameApi/"]
+COPY ["BestBoardGameApi.Dtos/BestBoardGameApi.Dtos.csproj", "BestBoardGameApi.Dtos/"]
+COPY ["PortalAboutEverything.Data/PortalAboutEverything.Data.csproj", "PortalAboutEverything.Data/"]
+RUN dotnet restore "BestBoardGameApi/BestBoardGameApi.csproj"
+COPY . .
+WORKDIR "/src/BestBoardGameApi"
+RUN dotnet build "BestBoardGameApi.csproj" -c $BUILD_CONFIGURATION -o /app/build && \
+    dotnet publish "BestBoardGameApi.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "BestBoardGameApi.dll"]

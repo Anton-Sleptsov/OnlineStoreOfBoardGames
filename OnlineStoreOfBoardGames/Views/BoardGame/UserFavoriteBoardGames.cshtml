@@ -1,0 +1,65 @@
+﻿@model OnlineStoreOfBoardGames.Models.BoardGame.UserFavoriteBoardGamesViewModel
+@using OnlineStoreOfBoardGames.LocalizationResources.BoardGame
+
+@section Title {
+    <link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+    <title>@BoardGame_UserFavoritesGame.TitleOfPage</title>
+}
+
+@section Style {
+    <link href="/css/BoardGame/boardGamesFavorite.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+    <script defer src="/js/BoardGame/ajaxDeleteFromFavorite.js"></script>
+}
+
+<input type="hidden" class="absence-of-games-text" value="@BoardGame_UserFavoritesGame.AbsenceOfGamesText" />
+
+<div class="board-game-list">
+    <h2 class="title">@BoardGame_UserFavoritesGame.PageTitle "@Model.Name"</h2>
+    @if (Model.FavoriteBoardGames.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>@BoardGame_UserFavoritesGame.Title</th>
+                    <th>@BoardGame_UserFavoritesGame.Price</th>
+                    <th>
+                        <div class="vk-share">
+                            <span></span>
+                            <button class="highlighted-button">@BoardGame_UserFavoritesGame.Share</button>
+                        </div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var boardGame in Model.FavoriteBoardGames)
+                {
+                    <tr class="board-game-item">
+                        <input type="hidden" class="board-game-id" value="@boardGame.Id" />
+                        <td>
+                            <a class="board-game-title text-dark" href="/BoardGame/BoardGame?Id=@boardGame.Id">@boardGame.Title</a>
+                        </td>
+                        <td>
+                            <p>@boardGame.Price</p>
+                        </td>
+                        <td>
+                            <div class="delete-and-add">
+                                <span></span>
+                                <a class="delete-link">x</a>
+                                <button class="highlighted-button card-button">@BoardGame_UserFavoritesGame.AddToCart</button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>@BoardGame_UserFavoritesGame.AbsenceOfGamesText</p>
+    }
+</div>
+

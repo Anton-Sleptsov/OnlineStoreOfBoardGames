@@ -1,0 +1,22 @@
+﻿@model List<OnlineStoreOfBoardGames.Models.Alert.AlertIndexViewModel>
+
+<h1>
+    Alert
+</h1>
+<div>
+    <a href="/Alert/Create">Create Alert</a>
+</div>
+<div>
+    @foreach (var alert in Model)
+    {
+        <div>
+            <div class="date">@alert.EndDate</div>
+            <div>
+                @alert.Text
+            </div>
+            <div>
+                <a href="/alert/delete?id=@alert.Id">delete</a>
+            </div>
+        </div>
+    }
+</div>

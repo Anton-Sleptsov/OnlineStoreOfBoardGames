@@ -1,0 +1,93 @@
+﻿@model OnlineStoreOfBoardGames.Models.BoardGame.BoardGameCreateViewModel
+@using OnlineStoreOfBoardGames.LocalizationResources.BoardGame
+@using OnlineStoreOfBoardGames.Models.BoardGame;
+
+@section Title {
+    <link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+    <title>@BoardGame_CreateAndUpdateGame.TitleCreate</title>
+}
+
+@section Style {
+    <link href="/css/BoardGame/forms.css" rel="stylesheet" />
+}
+
+<div class="board-game-or-review-form">
+    <h2>
+        @BoardGame_CreateAndUpdateGame.TitleOfPageCreate
+    </h2>
+    <form method="post" enctype="multipart/form-data">
+        <div>
+            @Html.TextBoxFor(boardGame => boardGame.Title, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.Title,
+                    @class = "foarm-field"
+                })
+            @Html.ValidationMessageFor(boardGame => boardGame.Title)
+        </div>
+        <div>
+            @Html.TextBoxFor(boardGame => boardGame.MiniTitle, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.MiniTitle,
+                    @class = "foarm-field"
+                })
+            @Html.ValidationMessageFor(boardGame => boardGame.MiniTitle)
+        </div>
+        <div class="file-input-container">
+            <p>
+                @Html.DisplayNameFor(boardGame => boardGame.MainImage)
+            </p>
+            <input type="file" name="@nameof(BoardGameCreateViewModel.MainImage)" accept="image/png, image/jpeg" />
+            @Html.ValidationMessageFor(boardGame => boardGame.MainImage)
+        </div>
+        <div class="file-input-container">
+            <p>
+                @Html.DisplayNameFor(boardGame => boardGame.SideImage)
+            </p>
+            <input type="file" name="@nameof(BoardGameCreateViewModel.SideImage)" accept="image/png, image/jpeg" />
+            @Html.ValidationMessageFor(boardGame => boardGame.SideImage)
+        </div>
+        <div>
+            @Html.TextAreaFor(boardGame => boardGame.Description, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.Description,
+                    @class = "foarm-field"
+                })
+            @Html.ValidationMessageFor(boardGame => boardGame.Description)
+        </div>
+        <div>
+            @Html.TextAreaFor(boardGame => boardGame.Essence, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.Essence,
+                    @class = "foarm-field"
+                })
+        </div>
+        <div>
+            @Html.TextBoxFor(boardGame => boardGame.Tags, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.Tags,
+                    @class = "foarm-field"
+                })
+        </div>
+        <div>
+            @Html.TextBoxFor(boardGame => boardGame.Price, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.Price,
+                    @class = "foarm-field",
+                    @type = "number"
+                })
+            @Html.ValidationMessageFor(boardGame => boardGame.Price)
+        </div>
+        <div>
+            @Html.TextBoxFor(boardGame => boardGame.ProductCode, new
+                {
+                    placeholder = BoardGame_CreateAndUpdateGame.ProductCode,
+                    @class = "foarm-field",
+                    @type = "number"
+                })
+            @Html.ValidationMessageFor(boardGame => boardGame.ProductCode)
+        </div>
+        <div>
+            <input class="button-send" type="submit" value="@BoardGame_CreateAndUpdateGame.AddButton" />
+        </div>
+    </form>
+</div>

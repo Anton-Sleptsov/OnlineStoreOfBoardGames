@@ -1,0 +1,71 @@
+﻿.board-game-or-review-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.board-game-or-review-form h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+
+.foarm-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.button-send {
+    background-color: #ef6747;
+    color: white;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-top: 15px;
+}
+
+.button-send:hover {
+    background-color: #dd7e68;
+}
+
+.input-validation-error {
+    border-color: #e74c3c;
+    background-color: #fdecea;
+}
+
+.input-validation-error::placeholder {
+    color: #e74c3c;
+}
+
+.field-validation-error {
+    display: inline-block;
+    margin-bottom: 15px;
+    color: #e74c3c;
+    font-weight: 500;
+}
+
+.file-input-container {
+    margin-top: 15px;
+}
+
+.file-input-container p {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 400;
+    color: #333;
+}
+
+.file-input-container input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}

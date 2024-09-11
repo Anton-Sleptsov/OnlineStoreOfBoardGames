@@ -1,0 +1,16 @@
+.alert-container
+{
+    display: none;
+
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border: 1px #ccc solid;
+    background-color: aqua
+}
+
+    .alert-container .alert {
+        padding: 5px 10px;
+        margin: 5px;
+        background: antiquewhite;
+    }

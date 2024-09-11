@@ -1,0 +1,28 @@
+﻿@model OnlineStoreOfBoardGames.Models.Auth.RegisrationViewModel
+
+@section Scripts{
+    <script src="/js/Auth/registration.js" ></script>
+}
+
+@section Style{
+    <link rel="stylesheet" href="/css/Auth/auth.css" />
+}
+
+<form method="post">
+    <div>
+        @Html.TextBoxFor(x => x.Login, new { placeholder = "Логин", @class="has-to-wait" })
+        @* <button class="check-login has-to-wait">Check login</button> *@
+        @Html.ValidationMessageFor(x => x.Login)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "Пароль" })
+        @Html.ValidationMessageFor(x => x.Password)
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.RepeatPassword, new { @type = "password", placeholder = "Повторите пароль" })
+        @Html.ValidationMessageFor(x => x.RepeatPassword)
+    </div>
+    <div>
+        <input type="submit" value="Зарегестрировтаься" />
+    </div>
+</form>

@@ -1,0 +1,16 @@
+﻿@model OnlineStoreOfBoardGames.Models.Alert.AlertCreateViewModel
+
+<h1>
+    Alert Creating
+</h1>
+<form method="post">
+    <div>
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Alert text" })
+    </div>
+    <div>
+        @Html.TextBoxFor(x => x.EndDate, new { @type = "date", placeholder = "end date" })
+    </div>
+    <div>
+        <input type="submit" value="Создать" />
+    </div>
+</form>

@@ -1,0 +1,25 @@
+﻿@model List<OnlineStoreOfBoardGames.Models.BoardGame.ApiMethodViewModel>
+@section Style {
+    <link href="/css/BoardGame/apiMethods.css" rel="stylesheet" />
+}
+
+<div class="api-methods-container">
+    <h1 class="api-method-title">Методы API контроллера BoardGame</h1>
+    @foreach (var method in Model)
+    {
+        <div class="api-method">
+            <span class="return-type">@method.ReturnTypeName</span>
+            <span class="method-name">@method.Name</span>
+            (
+            @for (int i = 0; i < method.Parameters.Count; i++)
+            {
+                <span class="parameter">@method.Parameters[i].ParameterTypeName @method.Parameters[i].ParameterTitle</span>
+                @if (i < method.Parameters.Count - 1)
+                {
+                    <span class="comma">, </span>
+                }
+            }
+            )
+        </div>
+    }
+</div>
