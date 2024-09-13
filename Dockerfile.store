@@ -1,0 +1,20 @@
+﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["OnlineStoreOfBoardGames/OnlineStoreOfBoardGames.csproj", "OnlineStoreOfBoardGames/"]
+COPY ["BestBoardGameApi.Dtos/BestBoardGameApi.Dtos.csproj", "BestBoardGameApi.Dtos/"]
+COPY ["BoardGameOfDayApi.Dtos/BoardGameOfDayApi.Dtos.csproj", "BoardGameOfDayApi.Dtos/"]
+COPY ["BoardGamesReviewsApi.Dtos/BoardGamesReviewsApi.Dtos.csproj", "BoardGamesReviewsApi.Dtos/"]
+COPY ["OnlineStoreOfBoardGames.Data/OnlineStoreOfBoardGames.Data.csproj", "OnlineStoreOfBoardGames.Data/"]
+RUN dotnet restore "OnlineStoreOfBoardGames/OnlineStoreOfBoardGames.csproj"
+COPY . .
+WORKDIR "/src/OnlineStoreOfBoardGames"
+RUN dotnet build "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /app/build && \
+    dotnet publish "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+USER $APP_UID
+WORKDIR /app
+EXPOSE 8080
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "OnlineStoreOfBoardGames.dll"]

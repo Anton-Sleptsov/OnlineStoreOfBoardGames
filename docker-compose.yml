@@ -1,30 +1,57 @@
 ﻿services:
-  portalabouteverything:
-    image: antonsleptsov/portal:first
+  store:
+    image: antonsleptsov/store
     environment:
-      - DB_HOST=db:5432
+      - DB_HOST=storedb:5432
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
-      - DB_DBNAME=testdb
+      - DB_DBNAME=storedb
     ports:
       - 8080:8080
     networks:
-      - portal-network-2
+      - store-network
     depends_on:
-      - db
+      - storedb
     restart: unless-stopped
-    
-  db:
+
+  storedb:
     image: postgres
     environment:
       - POSTGRES_USER=testuser
       - POSTGRES_PASSWORD=testpassword
-      - POSTGRES_DB=testdb
+      - POSTGRES_DB=storedb
     networks:
-      - portal-network-2
+      - store-network
     restart: unless-stopped
     volumes:
-      - "/home/anton/home/volumes/portalDbVolume:/var/lib/postgresql/data"
-        
+      - "/home/anton/home/volumes/boardGamesVolume/storeDbVolume:/var/lib/postgresql/data"
+
+  reviews:
+    image: antonsleptsov/reviews
+    environment:
+      - DB_HOST=reviewsdb:5432
+      - DB_USER=testuser
+      - DB_PASSWORD=testpassword
+      - DB_DBNAME=reviewsdb
+    ports:
+      - 8081:8080
+    networks:
+      - store-network
+    depends_on:
+      - reviewsdb
+    restart: unless-stopped
+
+  reviewsdb:
+    image: postgres
+    environment:
+      - POSTGRES_USER=testuser
+      - POSTGRES_PASSWORD=testpassword
+      - POSTGRES_DB=reviewsdb
+    networks:
+      - store-network
+    restart: unless-stopped
+    volumes:
+      - "/home/anton/home/volumes/boardGamesVolume/reviewsDbVolume:/var/lib/postgresql/data"
+
 networks:
-  portal-network-2:
+  store-network:
