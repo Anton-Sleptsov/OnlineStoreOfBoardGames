@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using OnlineStoreOfBoardGames;
 using OnlineStoreOfBoardGames.Controllers;
 using OnlineStoreOfBoardGames.CustomMiddlewareServices;
 using OnlineStoreOfBoardGames.Data;
@@ -64,11 +65,11 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSignalR();
 
 builder.Services.AddHttpClient<HttpBoardGamesReviewsApiService>(
-    x => x.BaseAddress = new Uri("https://localhost:7289/"));
+    x => x.BaseAddress = new Uri($"http://{MicroservicesSettings.ReviewsHost}/"));
 builder.Services.AddHttpClient<HttpBoardGameOfDayServise>(
-    t => t.BaseAddress = new Uri("https://localhost:7008/"));
+    t => t.BaseAddress = new Uri($"http://{MicroservicesSettings.BoardGameOfDayHost}/"));
 builder.Services.AddHttpClient<HttpBestBoardGameServise>(
-    t => t.BaseAddress = new Uri("https://localhost:7193/"));
+    t => t.BaseAddress = new Uri($"http://{MicroservicesSettings.BestBoardGameHost}/"));
 
 var app = builder.Build();
 

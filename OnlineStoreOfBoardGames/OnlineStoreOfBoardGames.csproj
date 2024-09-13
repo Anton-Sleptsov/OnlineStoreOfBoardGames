@@ -6,6 +6,21 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <Compile Remove="wwwroot\images\Game\**" />
+	  <Compile Remove="wwwroot\images\Movie\**" />
+	  <Compile Remove="wwwroot\images\Traveling\**" />
+	  <Content Remove="wwwroot\images\Game\**" />
+	  <Content Remove="wwwroot\images\Movie\**" />
+	  <Content Remove="wwwroot\images\Traveling\**" />
+	  <EmbeddedResource Remove="wwwroot\images\Game\**" />
+	  <EmbeddedResource Remove="wwwroot\images\Movie\**" />
+	  <EmbeddedResource Remove="wwwroot\images\Traveling\**" />
+	  <None Remove="wwwroot\images\Game\**" />
+	  <None Remove="wwwroot\images\Movie\**" />
+	  <None Remove="wwwroot\images\Traveling\**" />
+	</ItemGroup>
+
 
 	<ItemGroup>
 		<Compile Update="LocalizationResources\Blog\Blog_AdditionalContent.Designer.cs">
@@ -229,9 +244,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\images\Game\" />
-    <Folder Include="wwwroot\images\Movie\" />
-    <Folder Include="wwwroot\images\Traveling\UserPictures\" />
     <Folder Include="wwwroot\js\BoardGame\" />
   </ItemGroup>
 
