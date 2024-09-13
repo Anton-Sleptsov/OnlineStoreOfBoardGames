@@ -6,6 +6,9 @@
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
       - DB_DBNAME=storedb
+      - REVIEWS_HOST=reviews
+      - BOARD_DAME_OF_DAY_HOST=boardgameofday
+      - BEST_BOARD_GAME_HOST=bestboardgame
     ports:
       - 8080:8080
     networks:
@@ -13,6 +16,8 @@
     depends_on:
       - storedb
     restart: unless-stopped
+    volumes:
+      - "/home/anton/home/volumes/boardGamesVolume/storeVolume:/src/OnlineStoreOfBoardGames/wwwwroot/images/BoardGame"
 
   storedb:
     image: postgres
@@ -52,6 +57,26 @@
     restart: unless-stopped
     volumes:
       - "/home/anton/home/volumes/boardGamesVolume/reviewsDbVolume:/var/lib/postgresql/data"
+
+  boardgameofday:
+    image: antonsleptsov/boardgameofday
+    ports:
+      - 8082:8080
+    networks:
+      - store-network
+    depends_on:
+      - storedb
+    restart: unless-stopped
+
+  bestboardgame:
+    image: antonsleptsov/bestboardgame
+    ports:
+      - 8083:8080
+    networks:
+      - store-network
+    depends_on:
+      - storedb
+    restart: unless-stopped
 
 networks:
   store-network:
