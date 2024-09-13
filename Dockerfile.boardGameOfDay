@@ -3,7 +3,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["BoardGameOfDayApi/BoardGameOfDayApi.csproj", "BoardGameOfDayApi/"]
 COPY ["BoardGameOfDayApi.Dtos/BoardGameOfDayApi.Dtos.csproj", "BoardGameOfDayApi.Dtos/"]
-COPY ["PortalAboutEverything.Data/PortalAboutEverything.Data.csproj", "PortalAboutEverything.Data/"]
+COPY ["OnlineStoreOfBoardGames.Data/OnlineStoreOfBoardGames.Data.csproj", "OnlineStoreOfBoardGames.Data/"]
 RUN dotnet restore "BoardGameOfDayApi/BoardGameOfDayApi.csproj"
 COPY . .
 WORKDIR "/src/BoardGameOfDayApi"
