@@ -25,6 +25,8 @@
       - POSTGRES_USER=testuser
       - POSTGRES_PASSWORD=testpassword
       - POSTGRES_DB=storedb
+    ports:
+      - 9000:5432
     networks:
       - store-network
     restart: unless-stopped
@@ -52,6 +54,8 @@
       - POSTGRES_USER=testuser
       - POSTGRES_PASSWORD=testpassword
       - POSTGRES_DB=reviewsdb
+    ports:
+      - 9001:5432
     networks:
       - store-network
     restart: unless-stopped
