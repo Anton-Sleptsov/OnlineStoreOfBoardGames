@@ -1,6 +1,6 @@
 ﻿services:
   store:
-    image: antonsleptsov/store
+    image: antonsleptsov/store:master
     environment:
       - DB_HOST=storedb:5432
       - DB_USER=testuser
@@ -32,14 +32,12 @@
       - "/home/anton/home/volumes/boardGamesVolume/storeDbVolume:/var/lib/postgresql/data"
 
   reviews:
-    image: antonsleptsov/reviews
+    image: antonsleptsov/reviews:master
     environment:
       - DB_HOST=reviewsdb:5432
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
       - DB_DBNAME=reviewsdb
-    ports:
-      - 8081:8080
     networks:
       - store-network
     depends_on:
@@ -59,14 +57,12 @@
       - "/home/anton/home/volumes/boardGamesVolume/reviewsDbVolume:/var/lib/postgresql/data"
 
   boardgameofday:
-    image: antonsleptsov/boardgameofday
+    image: antonsleptsov/boardgameofday:master
     environment:
       - DB_HOST=storedb:5432
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
       - DB_DBNAME=storedb
-    ports:
-      - 8082:8080
     networks:
       - store-network
     depends_on:
@@ -74,14 +70,12 @@
     restart: unless-stopped
 
   bestboardgame:
-    image: antonsleptsov/bestboardgame
+    image: antonsleptsov/bestboardgame:master
     environment:
       - DB_HOST=storedb:5432
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
       - DB_DBNAME=storedb
-    ports:
-      - 8083:8080
     networks:
       - store-network
     depends_on:
