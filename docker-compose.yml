@@ -17,7 +17,7 @@
       - storedb
     restart: unless-stopped
     volumes:
-      - "/home/anton/home/volumes/boardGamesVolume/storeVolume:/app/wwwroot/images/BoardGame"
+      - "/home/anton/home/volumes/boardGamesVolume/storeVolume:/app/wwwroot/images/ImagesOfGame"
 
   storedb:
     image: postgres

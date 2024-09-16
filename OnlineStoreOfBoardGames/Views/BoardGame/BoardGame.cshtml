@@ -57,26 +57,26 @@
                 <div class="images">
                     @if (Model.HasSideImage)
                     {
-                        <img src="/images/BoardGame/sideImage-@(Model.Id).jpg"
+                        <img src="/images/ImagesOfGame/sideImage-@(Model.Id).jpg"
                              alt="@BoardGame_GamePage.SideImages"
                              class="elongated-image" />
                     }
                     else if (Model.ProductCode == 31458)
                     {
-                        <img src="/images/BoardGame/sideImage-default.png"
+                        <img src="/images/ImagesOfGame/sideImage-default.png"
                              alt="@BoardGame_GamePage.SideImages"
                              class="elongated-image" />
                     }
 
                     @if (Model.HasMainImage)
                     {
-                        <img src="/images/BoardGame/mainImage-@(Model.Id).jpg"
+                        <img src="/images/ImagesOfGame/mainImage-@(Model.Id).jpg"
                              alt="@BoardGame_GamePage.FotoOfGame"
                              class="square-image" />
                     }
                     else if (Model.ProductCode == 31458)
                     {
-                        <img src="/images/BoardGame/mainImage-default.jpg"
+                        <img src="/images/ImagesOfGame/mainImage-default.jpg"
                              alt="@BoardGame_GamePage.FotoOfGame"
                              class="square-image" />
                     }
@@ -144,13 +144,13 @@
                 <h3>@BoardGame_GamePage.BoardGameOfDay</h3>
                 @if (Model.BoardGameOfDay.HasMainImage)
                 {
-                    <img src="/images/BoardGame/mainImage-@(Model.BoardGameOfDay.Id).jpg"
+                    <img src="/images/ImagesOfGame/mainImage-@(Model.BoardGameOfDay.Id).jpg"
                          alt="@BoardGame_GamePage.FotoOfGame"
                          class="square-image" />
                 }
                 else
                 {
-                    <img src="/images/BoardGame/mainImage-default.jpg"
+                    <img src="/images/ImagesOfGame/mainImage-default.jpg"
                          alt="@BoardGame_GamePage.FotoOfGame"
                          class="square-image" />
                 }
@@ -164,13 +164,13 @@
                 <h3>@BoardGame_GamePage.BestBoardGame</h3>
                 @if (Model.BestBoardGame.HasMainImage)
                 {
-                    <img src="/images/BoardGame/mainImage-@(Model.BestBoardGame.Id).jpg"
+                    <img src="/images/ImagesOfGame/mainImage-@(Model.BestBoardGame.Id).jpg"
                          alt="@BoardGame_GamePage.FotoOfGame"
                          class="square-image" />
                 }
                 else
                 {
-                    <img src="/images/BoardGame/mainImage-default.jpg"
+                    <img src="/images/ImagesOfGame/mainImage-default.jpg"
                          alt="@BoardGame_GamePage.FotoOfGame"
                          class="square-image" />
                 }

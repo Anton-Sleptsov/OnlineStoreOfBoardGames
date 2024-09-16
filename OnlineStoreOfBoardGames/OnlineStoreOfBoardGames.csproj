@@ -244,6 +244,7 @@
 	</ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\ImagesOfGame\" />
     <Folder Include="wwwroot\js\BoardGame\" />
   </ItemGroup>
 
