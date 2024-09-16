@@ -17,22 +17,6 @@ jobs:
       - name: Set up Docker Buildx 
         uses: docker/setup-buildx-action@v2
 
-      - name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v5
-        with:
-          images: |
-            antonsleptsov/bestboardgame
-            antonsleptsov/boardgameofday
-            antonsleptsov/reviews
-            antonsleptsov/store
-          tags: |
-            type=sha
-            type=ref,event=branch
-            type=ref,event=pr
-            type=semver,pattern={{version}}
-            type=semver,pattern={{major}}.{{minor}}
-
       - name: Log in to Docker Hub 
         uses: docker/login-action@v2 
         with: 
@@ -46,7 +30,7 @@ jobs:
           context: .
           file: ./Dockerfile.bestBoardGame  # путь к Dockerfile.bestBoardGame
           push: true
-          tags: antonsleptsov/bestboardgame:${{ steps.meta.outputs.sha }}  # исправленный тег
+          tags: antonsleptsov/bestboardgame:latest  # явный тег
 
       # Build and push image for board game of the day
       - name: Build and push Docker image (boardGameOfDay)
@@ -55,7 +39,7 @@ jobs:
           context: .
           file: ./Dockerfile.boardGameOfDay  # путь к Dockerfile.boardGameOfDay
           push: true
-          tags: antonsleptsov/boardgameofday:${{ steps.meta.outputs.sha }}  # исправленный тег
+          tags: antonsleptsov/boardgameofday:latest  # явный тег
 
       # Build and push image for reviews
       - name: Build and push Docker image (reviews)
@@ -64,7 +48,7 @@ jobs:
           context: .
           file: ./Dockerfile.reviews  # путь к Dockerfile.reviews
           push: true
-          tags: antonsleptsov/reviews:${{ steps.meta.outputs.sha }}  # исправленный тег
+          tags: antonsleptsov/reviews:latest  # явный тег
 
       # Build and push image for store
       - name: Build and push Docker image (store)
@@ -73,5 +57,4 @@ jobs:
           context: .
           file: ./Dockerfile.store  # путь к Dockerfile.store
           push: true
-          tags: antonsleptsov/store:${{ steps.meta.outputs.sha }}  # исправленный тег
-
+          tags: antonsleptsov/store:latest  # явный тег
