@@ -363,7 +363,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 
-OnlineStoreOfBoardGames/wwwroot/images/ImagesOfGame/*
-OnlineStoreOfBoardGames/wwwroot/images/ImagesOfGame/*
+OnlineStoreOfBoardGames/wwwroot/images/ImagesOfGame/mainImage*.*
+OnlineStoreOfBoardGames/wwwroot/images/ImagesOfGame/sideImage*.*
 
 *.vscode
