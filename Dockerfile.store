@@ -20,8 +20,8 @@ EXPOSE 8080
 COPY --from=build /app/publish .
     
 
-RUN chown -R www-data:www-data /app/wwwroot/images/BoardGame && \
-        chmod -R 755 /app/wwwroot/images/BoardGame
+RUN chown -R www-data:www-data /app/wwwroot/images/ImagesOfGame && \
+        chmod -R 755 /app/wwwroot/images/ImagesOfGame
     
 
 USER www-data
