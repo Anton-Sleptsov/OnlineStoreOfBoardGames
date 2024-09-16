@@ -12,20 +12,15 @@ WORKDIR "/src/OnlineStoreOfBoardGames"
 RUN dotnet build "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /app/build && \
     dotnet publish "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
-
-WORKDIR /app
-EXPOSE 8080
+    FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+    USER root 
+    WORKDIR /app
+    EXPOSE 8080
     
-COPY --from=build /app/publish .
+    RUN chown -R www-data:www-data /app/wwwroot/images/ImagesOfGame && \
+        chmod -R 775 /app/wwwroot/images/ImagesOfGame
     
-
-RUN chown -R www-data:www-data /app/wwwroot/images/ImagesOfGame && \
-        chmod -R 755 /app/wwwroot/images/ImagesOfGame
+    USER www-data 
+    COPY --from=build /app/publish .
+    ENTRYPOINT ["dotnet", "OnlineStoreOfBoardGames.dll"]
     
-
-USER www-data
-    
-ENTRYPOINT ["dotnet", "OnlineStoreOfBoardGames.dll"]
-    
-
