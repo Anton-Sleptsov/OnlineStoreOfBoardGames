@@ -5,24 +5,24 @@
 }
 
 @section Style{
-    <link rel="stylesheet" href="/css/Auth/auth.css" />
+    <link rel="stylesheet" href="/css/Auth/registration.css" />
 }
 
-<form method="post">
-    <div>
-        @Html.TextBoxFor(x => x.Login, new { placeholder = "Логин", @class="has-to-wait" })
-        @* <button class="check-login has-to-wait">Check login</button> *@
+<form class="registration-form" method="post">
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Login, new { placeholder = "Логин", @class = "text-input has-to-wait" })
         @Html.ValidationMessageFor(x => x.Login)
     </div>
-    <div>
-        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "Пароль" })
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "Пароль", @class = "text-input" })
         @Html.ValidationMessageFor(x => x.Password)
     </div>
-    <div>
-        @Html.TextBoxFor(x => x.RepeatPassword, new { @type = "password", placeholder = "Повторите пароль" })
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.RepeatPassword, new { @type = "password", placeholder = "Повторите пароль", @class = "text-input" })
         @Html.ValidationMessageFor(x => x.RepeatPassword)
     </div>
-    <div>
-        <input type="submit" value="Зарегестрировтаься" />
+    <div class="form-group">
+        <input type="submit" value="Зарегистрироваться" class="submit-button" />
     </div>
 </form>
+

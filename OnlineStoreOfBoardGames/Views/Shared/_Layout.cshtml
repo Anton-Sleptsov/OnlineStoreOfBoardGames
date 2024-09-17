@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/alert.css" />
     <link rel="stylesheet" href="~/OnlineStoreOfBoardGames.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" />
     @RenderSection("Style", false)
 </head>
 <body>
@@ -45,9 +46,12 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" href="/User/Index">Users</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/Alert/Index">Alert</a>
-                        </li>
+                        @if ((User?.Identity?.IsAuthenticated) ?? false)
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Alert/Index">Alert</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>
@@ -59,7 +63,6 @@
         </main>
     </div>
     <div class="alert-container">
-
     </div>
     <script src="~/lib/lodash/lodash 1.8.3.js"></script>
     <script src="~/lib/lodash/debounce.js"></script>

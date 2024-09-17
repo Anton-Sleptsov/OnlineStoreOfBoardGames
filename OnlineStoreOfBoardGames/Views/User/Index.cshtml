@@ -1,24 +1,32 @@
 ﻿@model OnlineStoreOfBoardGames.Models.User.IndexViewModel
 
-<div>
-    Users
+@section Style {
+    <link href="/css/User/index.css?v=1" rel="stylesheet" />
+}
+
+<div class="users-container">
+    <h2>Users</h2>
     @foreach (var user in Model.Users)
     {
-        <div class="user">
-            <form method="post" action="/User/UpdatePermissions">
-                <input  type="hidden" name="userId" value="@user.Id"/>
-                @user.Name [@user.Id]
-                @foreach (var permission in Model.AvailablePermissions)
-                {
-                    <label>
-                        @permission.ToString()
-                        <input type="checkbox"
-                               name="permissions[@((int)permission)]"
-                               value="@((int)permission)"
-                        @(user.Permission.HasFlag(permission) ? "checked='checked'" : "") />
-                    </label>
-                }
-                <input type="submit" value="обновить" />
+        <div class="user-card">
+            <form method="post" action="/User/UpdatePermissions" class="permissions-form">
+                <input type="hidden" name="userId" value="@user.Id" />
+                <div class="user-info">
+                    <span class="user-name">@user.Name [@user.Id]</span>
+                </div>
+                <div class="permissions">
+                    @foreach (var permission in Model.AvailablePermissions)
+                    {
+                        <label class="permission-checkbox">
+                            @permission.ToString()
+                            <input type="checkbox"
+                                   name="permissions[@((int)permission)]"
+                                   value="@((int)permission)"
+                            @(user.Permission.HasFlag(permission) ? "checked='checked'" : "") />
+                        </label>
+                    }
+                </div>
+                <input type="submit" value="Обновить" class="submit-button" />
             </form>
         </div>
     }

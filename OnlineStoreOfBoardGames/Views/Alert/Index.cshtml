@@ -1,22 +1,32 @@
-﻿@model List<OnlineStoreOfBoardGames.Models.Alert.AlertIndexViewModel>
+﻿@model OnlineStoreOfBoardGames.Models.Alert.AlertsIndexViewModel
 
-<h1>
-    Alert
-</h1>
+@section Style {
+    <link href="/css/Alerts/index.css?v=1" rel="stylesheet" />
+}
+
+<h1>Alerts</h1>
+
+@if (Model.CanCreateAndDelete)
+{
+    <div class="create-alert">
+        <a href="/Alert/Create">Create Alert</a>
+    </div>
+}
+
 <div>
-    <a href="/Alert/Create">Create Alert</a>
-</div>
-<div>
-    @foreach (var alert in Model)
+    @foreach (var alert in Model.Alerts)
     {
-        <div>
+        <div class="alert-item">
             <div class="date">@alert.EndDate</div>
             <div>
                 @alert.Text
             </div>
-            <div>
-                <a href="/alert/delete?id=@alert.Id">delete</a>
-            </div>
+            @if (Model.CanCreateAndDelete)
+            {
+                <div>
+                    <a href="/alert/delete?id=@alert.Id">delete</a>
+                </div>
+            }
         </div>
     }
 </div>

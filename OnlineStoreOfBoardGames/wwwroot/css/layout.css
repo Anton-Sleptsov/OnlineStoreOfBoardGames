@@ -1,0 +1,66 @@
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FF6347;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #dd7e68;
+}
+
+.navbar-toggler {
+  border: none;
+  background: transparent;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;base64,...");
+}
+
+.nav-link {
+  font-size: 1rem;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: #FF6347;
+}
+
+.login-link {
+  font-weight: bold;
+}
+
+.logout-link {
+  font-weight: bold;
+}
+
+.board-game-link {
+  font-weight: bold;
+}
+
+.navbar-collapse {
+  justify-content: flex-end;
+}
+
+.nav-item {
+  margin-left: 10px;
+}
+
+@media (max-width: 576px) {
+  .navbar-collapse {
+    text-align: center;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+}
