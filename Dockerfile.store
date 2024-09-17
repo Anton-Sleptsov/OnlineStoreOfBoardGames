@@ -13,14 +13,9 @@ RUN dotnet build "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /ap
     dotnet publish "OnlineStoreOfBoardGames.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
     FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
-    USER root 
+    USER www-data  
     WORKDIR /app
     EXPOSE 8080
-    
-    RUN chown -R www-data:www-data /app/wwwroot/images/ImagesOfGame && \
-        chmod -R 775 /app/wwwroot/images/ImagesOfGame
-    
-    USER www-data 
     COPY --from=build /app/publish .
     ENTRYPOINT ["dotnet", "OnlineStoreOfBoardGames.dll"]
     
