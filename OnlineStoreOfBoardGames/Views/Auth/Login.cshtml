@@ -1,13 +1,17 @@
 ﻿@model OnlineStoreOfBoardGames.Models.Auth.AuthViewModel
 
-<form method="post">
-    <div>
-        @Html.TextBoxFor(x => x.Login, new { placeholder = "login" })
+@section Style {
+    <link rel="stylesheet" href="/css/Auth/login.css" />
+}
+
+<form class="login-form" method="post">
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Login, new { placeholder = "login", @class = "text-input" })
     </div>
-    <div>
-        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "password" })
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Password, new { @type = "password", placeholder = "password", @class = "text-input" })
     </div>
-    <div>
-        <input type="submit" value="Логин" />
+    <div class="form-group">
+        <input type="submit" value="Логин" class="submit-button" />
     </div>
 </form>

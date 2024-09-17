@@ -1,0 +1,55 @@
+.users-container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+  color: #FF6347;
+  margin-bottom: 20px;
+}
+
+.user-card {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-name {
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.permissions {
+  margin-bottom: 10px;
+}
+
+.permission-checkbox {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.permission-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.submit-button {
+  background-color: #FF6347;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #dd7e68;
+}

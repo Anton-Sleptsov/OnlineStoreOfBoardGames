@@ -1,16 +1,20 @@
 ﻿@model OnlineStoreOfBoardGames.Models.Alert.AlertCreateViewModel
 
-<h1>
+@section Style {
+    <link href="/css/Alerts/create.css?v=1" rel="stylesheet" />
+}
+
+<h1 class="page-title">
     Alert Creating
 </h1>
-<form method="post">
-    <div>
-        @Html.TextBoxFor(x => x.Text, new { placeholder = "Alert text" })
+<form class="alert-form" method="post">
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Alert text", @class = "text-input" })
     </div>
-    <div>
-        @Html.TextBoxFor(x => x.EndDate, new { @type = "date", placeholder = "end date" })
+    <div class="form-group">
+        @Html.TextBoxFor(x => x.EndDate, new { @type = "date", placeholder = "end date", @class = "date-input" })
     </div>
-    <div>
-        <input type="submit" value="Создать" />
+    <div class="form-group">
+        <input type="submit" value="Создать" class="submit-button" />
     </div>
 </form>
