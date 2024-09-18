@@ -6,6 +6,9 @@
       - DB_USER=testuser
       - DB_PASSWORD=testpassword
       - DB_DBNAME=storedb
+      - REVIEWS_HOST=reviews:8080
+      - BOARD_DAME_OF_DAY_HOST=boardgameofday:8080
+      - BEST_BOARD_GAME_HOST=bestboardgame:8080
     ports:
       - 8080:8080
     networks:
