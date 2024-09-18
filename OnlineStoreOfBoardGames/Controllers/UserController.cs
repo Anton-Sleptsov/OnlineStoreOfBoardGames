@@ -1,49 +1,59 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using OnlineStoreOfBoardGames.Controllers.ActionFilterAttributes;
 using OnlineStoreOfBoardGames.Data.Enums;
 using OnlineStoreOfBoardGames.Data.Model;
 using OnlineStoreOfBoardGames.Data.Repositories;
 using OnlineStoreOfBoardGames.Models.User;
+using OnlineStoreOfBoardGames.Services.AuthStuff.Interfaces;
 
 namespace OnlineStoreOfBoardGames.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private readonly UserRepository _userRepository;
+        private readonly IAuthService _authService;
 
-        public UserController(UserRepository userRepository)
+        public UserController(UserRepository userRepository, IAuthService authService)
         {
             _userRepository = userRepository;
+            _authService = authService;
         }
 
+        [HasPermission(Permission.CanViewPremission)]
         public IActionResult Index()
         {
             var userViewModel = _userRepository
                 .GetAll()
                 .Select(BuildUserViewModel)
                 .ToList();
+
             var viewModel = new IndexViewModel
             {
                 Users = userViewModel,
                 AvailablePermissions = Enum
                     .GetValues<Permission>()
                     .Where(x => x > 0)
-                    .ToList()
+                    .ToList(),
+                CanEditPermissions = _authService.HasPermission(Permission.CanEditPremission)
             };
 
             return View(viewModel);
         }
 
+        [HasPermission(Permission.CanEditPremission)]
         [HttpPost]
-        public IActionResult UpdatePermissions(int userId, List<int> permissions)
+        public IActionResult UpdatePermissions(int userId)
         {
             var userPermission = Permission.None;
             var availablePermissions = Enum.GetValues<Permission>().ToList();
-            foreach (var permission in availablePermissions)// 1 2 4 8
+            foreach (var permission in availablePermissions)
             {
-                var formData = Request.Form[$"permissions[{(int)permission}]"];//permissions[2]
+                var formData = Request.Form[$"permissions[{(int)permission}]"];
                 if (formData.Any())
                 {
-                    userPermission = userPermission | permission;
+                    userPermission |= permission;
                 }
             }
 

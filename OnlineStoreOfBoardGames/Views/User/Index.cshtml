@@ -22,11 +22,15 @@
                             <input type="checkbox"
                                    name="permissions[@((int)permission)]"
                                    value="@((int)permission)"
-                            @(user.Permission.HasFlag(permission) ? "checked='checked'" : "") />
+                            @(user.Permission.HasFlag(permission) ? "checked='checked'" : "")
+                            @(!Model.CanEditPermissions || user.Name == "admin" ? "disabled='disabled'" : "") />
                         </label>
                     }
                 </div>
-                <input type="submit" value="Обновить" class="submit-button" />
+                @if (Model.CanEditPermissions)
+                {             
+                    <input type="submit" value="Обновить" class="submit-button" />
+                }
             </form>
         </div>
     }
