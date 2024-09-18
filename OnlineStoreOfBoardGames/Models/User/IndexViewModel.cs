@@ -7,5 +7,6 @@ namespace OnlineStoreOfBoardGames.Models.User
         public List<UserPermissionViewModel> Users { get; set; }
         
         public List<Permission> AvailablePermissions { get; set; }
+        public bool CanEditPermissions { get; set; }
     }
 }

@@ -1,4 +1,9 @@
-﻿<!DOCTYPE html>
+﻿@using OnlineStoreOfBoardGames.Services.AuthStuff.Interfaces
+@using OnlineStoreOfBoardGames.Data.Enums
+
+@inject IAuthService authService
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -41,11 +46,14 @@
                         }
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark board-game-link" href="/BoardGame/Index">Настольные игры</a>
+                            <a class="nav-link text-dark board-game-link" href="/BoardGame/Index">Board games</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="/User/Index">Users</a>
-                        </li>
+                        @if (authService.IsAuthenticated() && authService.HasPermission(Permission.CanViewPremission))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/User/Index">Users</a>
+                            </li>
+                        }
                         @if ((User?.Identity?.IsAuthenticated) ?? false)
                         {
                             <li class="nav-item">

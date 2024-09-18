@@ -46,6 +46,7 @@ namespace OnlineStoreOfBoardGames.Data
                     UserName = "admin",
                     Password = "admin",
                     Role = UserRole.Admin,
+                    Permission = Permission.CanViewPremission | Permission.CanEditPremission,
                     Language = Language.En
                 };
                 userRepository.Create(admin);
