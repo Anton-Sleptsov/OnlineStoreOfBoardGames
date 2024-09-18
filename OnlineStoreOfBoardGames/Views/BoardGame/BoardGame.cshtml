@@ -107,16 +107,16 @@
                     <p class="code">@BoardGame_GamePage.ProductCode: @Model.ProductCode</p>
                 </div>
                 <div class="buttons">
-                    <button class="highlighted-button">@BoardGame_GamePage.AddToCart</button>
+                   @*  <button class="highlighted-button">@BoardGame_GamePage.AddToCart</button> *@
                     @if (Model.IsFavoriteForUser)
                     {
                         <input type="hidden" class="is-add" value="0" />
-                        <button class="usual-button favorite-button">@BoardGame_GamePage.RemoveFromFavorites</button>
+                        <button class="highlighted-button favorite-button">@BoardGame_GamePage.RemoveFromFavorites</button>
                     }
                     else
                     {
                         <input type="hidden" class="is-add" value="1" />
-                        <button class="usual-button favorite-button">@BoardGame_GamePage.AddToFavorites</button>
+                        <button class="highlighted-buttonn favorite-button">@BoardGame_GamePage.AddToFavorites</button>
                     }
                 </div>
             </div>
@@ -130,7 +130,7 @@
         <div class="reviews-container">
         </div>
         <div class="review-buttons">
-            <button class="usual-button">@BoardGame_GamePage.ShowMore</button>
+           @*  <button class="usual-button">@BoardGame_GamePage.ShowMore</button> *@
             <button class="highlighted-button create-review-button" onclick="window.location.href = '/BoardGameReview/Create?GameId=@Model.Id';">@BoardGame_GamePage.AddReview</button>
         </div>
     </div>

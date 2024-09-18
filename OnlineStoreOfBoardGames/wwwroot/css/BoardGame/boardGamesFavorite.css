@@ -46,7 +46,7 @@ tbody td {
 }
 
 .delete-link {
-    color: red;
+    color: #ef6747;
     text-decoration: none;
     font-size: 30px;
     font-weight: 500;
