@@ -14,6 +14,7 @@ namespace OnlineStoreOfBoardGames.Data.Model
         public UserRole Role {  get; set; }
 
         public virtual List<BoardGame> FavoriteBoardsGames { get; set; }
+        public virtual List<Order> Orders { get; set; }
         public virtual List<AlertUser> AlertsWhichISaw { get; set; }
     }
 }

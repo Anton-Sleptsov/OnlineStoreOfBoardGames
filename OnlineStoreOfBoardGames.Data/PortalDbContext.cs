@@ -9,6 +9,8 @@ namespace OnlineStoreOfBoardGames.Data
         public DbSet<Alert> Alerts { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<BoardGame> BoardGames { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public PortalDbContext() { }
         public PortalDbContext(DbContextOptions<PortalDbContext> contextOptions) : base(contextOptions) { }
 
@@ -31,6 +33,17 @@ namespace OnlineStoreOfBoardGames.Data
             modelBuilder.Entity<Alert>()
                 .HasMany(x => x.UsersWhoAlreadySawIt)
                 .WithOne(x => x.Alert);
+
+            modelBuilder.Entity<Order>()
+                  .HasMany(x => x.Games)
+                  .WithOne(x => x.Order)
+                  .HasForeignKey(x => x.OrderId)
+                  .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<OrderItem>()
+                .HasOne(x => x.BoardGame)
+                .WithMany()
+                .HasForeignKey(x => x.BoardGameId);
 
             base.OnModelCreating(modelBuilder);
         }
