@@ -54,6 +54,7 @@ builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddScoped<BoardGameMapper>();
 builder.Services.AddScoped<AlertMapper>();
+builder.Services.AddScoped<CartMapper>();
 
 builder.Services.AddSingleton<IPathHelper, PathHelper>();
 builder.Services.AddSingleton<PathHelper>();

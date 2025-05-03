@@ -107,7 +107,7 @@
                     <p class="code">@BoardGame_GamePage.ProductCode: @Model.ProductCode</p>
                 </div>
                 <div class="buttons">
-                    <button class="highlighted-button">@BoardGame_GamePage.AddToCart</button>
+                    <button class="highlighted-button" onclick="window.location.href='/Cart/AddGame?boardGameId=@Model.Id'">@BoardGame_GamePage.AddToCart</button>
                     @if (Model.IsFavoriteForUser)
                     {
                         <input type="hidden" class="is-add" value="0" />

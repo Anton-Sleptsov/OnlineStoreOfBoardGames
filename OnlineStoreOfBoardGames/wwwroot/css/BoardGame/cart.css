@@ -1,0 +1,124 @@
+﻿.cart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: left;
+}
+
+tbody td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.board-game-item:hover {
+    background-color: #f1f1f1;
+}
+
+.board-game-title {
+    color: #faa71a;
+    text-decoration: none;
+}
+
+    .board-game-title:hover {
+        text-decoration: underline;
+    }
+
+.cart-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.cart-button {
+    background-color: #ef6747;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+    .cart-button:hover {
+        background-color: #dd7e68;
+    }
+
+.cart-summary {
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.clear-cart {
+    display: inline-block;
+    color: white;
+    background-color: #ef6747;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+    .clear-cart:hover {
+        background-color: #dd7e68;
+    }
+
+.order-button {
+    color: white;
+    background-color: #ef6747;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+    .order-button:hover {
+        background-color: #dd7e68;
+    }
+
+.empty-cart-message {
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+    padding: 40px 0;
+}
+
+.clear-cart {
+    display: inline-block;
+    color: white;
+    background-color: #ef6747;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+    .clear-cart:hover {
+        background-color: #dd7e68;
+        color: white; 
+        text-decoration: none; 
+    }

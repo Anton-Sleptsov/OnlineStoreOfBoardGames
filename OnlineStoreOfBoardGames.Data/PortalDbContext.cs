@@ -11,6 +11,8 @@ namespace OnlineStoreOfBoardGames.Data
         public DbSet<BoardGame> BoardGames { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
+        public DbSet<Cart> Carts { get; set; }
+        public DbSet<CartItem> CartItems { get; set; }
         public PortalDbContext() { }
         public PortalDbContext(DbContextOptions<PortalDbContext> contextOptions) : base(contextOptions) { }
 
@@ -41,6 +43,17 @@ namespace OnlineStoreOfBoardGames.Data
                   .OnDelete(DeleteBehavior.Cascade);
 
             modelBuilder.Entity<OrderItem>()
+                .HasOne(x => x.BoardGame)
+                .WithMany()
+                .HasForeignKey(x => x.BoardGameId);
+
+            modelBuilder.Entity<Cart>()
+              .HasMany(x => x.Games)
+              .WithOne(x => x.Cart)
+              .HasForeignKey(x => x.CartId)
+              .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<CartItem>()
                 .HasOne(x => x.BoardGame)
                 .WithMany()
                 .HasForeignKey(x => x.BoardGameId);

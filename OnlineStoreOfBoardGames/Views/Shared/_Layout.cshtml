@@ -48,6 +48,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark board-game-link" href="/BoardGame/Index">Board games</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark board-game-link" href="/Cart/Index">Cart</a>
+                        </li>
                         @if (authService.IsAuthenticated() && authService.HasPermission(Permission.CanViewPremission))
                         {
                             <li class="nav-item">

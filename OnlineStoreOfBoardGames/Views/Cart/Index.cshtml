@@ -1,0 +1,68 @@
+﻿@model OnlineStoreOfBoardGames.Models.Cart.CartViewModel
+@using OnlineStoreOfBoardGames.LocalizationResources.BoardGame
+
+@section Title {
+    <link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+    <title>Корзина</title>
+}
+
+@section Style {
+    <link href="/css/BoardGame/cart.css" rel="stylesheet" />
+}
+
+
+<div class="cart-container">
+    <h2 class="title">Корзина</h2>
+    @if (Model.Games != null && Model.Games.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Сумма</th>
+                    <th>Количество</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var boardGame in Model.Games)
+                {
+                    <tr class="board-game-item">
+                        <td>
+                            <a class="board-game-title text-dark" href="/BoardGame/BoardGame?Id=@boardGame.BoardGameId">@boardGame.BoardGameTitle</a>
+                        </td>
+                        <td>
+                            <p>@boardGame.Price</p>
+                        </td>
+                        <td>
+                            <p>@boardGame.Quantity</p>
+                        </td>
+                        <td class="cart-actions">
+                            <form method="get" action="/Cart/IncrementGame">
+                                <input type="hidden" name="BoardGameId" value="@boardGame.BoardGameId" />
+                                <button class="cart-button" type="submit">+</button>
+                            </form>
+                            <form method="get" action="/Cart/DecrementGame">
+                                <input type="hidden" name="BoardGameId" value="@boardGame.BoardGameId" />
+                                <button class="cart-button" type="submit">−</button>
+                            </form>
+                            <form method="get" action="/Cart/DeleteGame">
+                                <input type="hidden" name="BoardGameId" value="@boardGame.BoardGameId" />
+                                <button class="cart-button" type="submit">Х</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p class="cart-summary">Сумма корзины: @Model.Sum</p>
+        <a class="clear-cart" href="/Cart/DeleteCart">Очистить корзину</a>
+        <button class="order-button">Оформить заказ</button>
+    }
+    else
+    {
+        <p class="empty-cart-message">Корзина пуста</p>
+    }
+</div>
+
+
