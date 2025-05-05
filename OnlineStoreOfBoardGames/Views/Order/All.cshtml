@@ -1,0 +1,43 @@
+﻿@model OnlineStoreOfBoardGames.Models.Order.OrderIndexViewModel
+
+@section Title {
+    <link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+    <title>Панель администратора заказов</title>
+}
+
+@section Style {
+    <link href="/css/Order/orderIndex.css" rel="stylesheet" />
+}
+
+<div>
+    <div class="order-filter">
+        @if (Model.IsAll)
+        {
+            <a href="/Order/All?isAll=false">Активные заказы</a>
+            <a href="/Order/All?isAll=true" class="active">Все заказы</a>
+        }
+        else
+        {
+            <a href="/Order/All?isAll=false" class="active">Активные заказы</a>
+            <a href="/Order/All?isAll=true">Все заказы</a>
+        }
+    </div>
+
+    @if (Model.ViewModels is not null && Model.ViewModels.Any())
+    {
+        <ul class="order-list">
+            @foreach (var order in Model.ViewModels)
+            {
+                <li>
+                    <a class="order-link" href="/Order/CurrentOrder?orderId=@order.OrderId">
+                        Заказ №@order.OrderId от @order.DateOfCreate.ToShortDateString() на сумму @order.Sum₽ со статусом "@order.Status"
+                    </a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p class="no-orders">Заказов нет</p>
+    }
+</div>

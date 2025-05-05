@@ -32,35 +32,44 @@
                         @if ((!User?.Identity?.IsAuthenticated) ?? true)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark login-link" href="/Auth/Login">Login</a>
+                                <a class="nav-link text-dark login-link" href="/Auth/Login">Войти</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Auth/Registration">Register</a>
+                                <a class="nav-link text-dark" href="/Auth/Registration">Регистрация</a>
                             </li>
                         }
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark logout-link" href="/Auth/Logout">Logout</a>
+                                <a class="nav-link text-dark logout-link" href="/Auth/Logout">Выйти</a>
                             </li>
                         }
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark board-game-link" href="/BoardGame/Index">Board games</a>
+                            <a class="nav-link text-dark board-game-link" href="/BoardGame/Index">Настольные игры</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark board-game-link" href="/Cart/Index">Cart</a>
+                            <a class="nav-link text-dark board-game-link" href="/Cart/Index">Корзина</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark board-game-link" href="/Order/Index">Заказы</a>
                         </li>
                         @if (authService.IsAuthenticated() && authService.HasPermission(Permission.CanViewPremission))
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/User/Index">Users</a>
+                                <a class="nav-link text-dark" href="/User/Index">Пользователи</a>
                             </li>
                         }
                         @if ((User?.Identity?.IsAuthenticated) ?? false)
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="/Alert/Index">Alert</a>
+                                <a class="nav-link text-dark" href="/Alert/Index">Уведомления</a>
+                            </li>
+                        }
+                        @if (authService.IsAuthenticated() && authService.HasPermission(Permission.CanChangeOrderStatus))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Order/All">Все заказы</a>
                             </li>
                         }
                     </ul>

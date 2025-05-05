@@ -1,0 +1,55 @@
+﻿@model OnlineStoreOfBoardGames.Models.Order.OrderViewModel
+
+@section Title {
+<link rel="shortcut icon" href="/images/BoardGame/logo.png" type="image/png">
+<title>Заказ</title>
+}
+
+@section Style {
+<link href="/css/BoardGame/cart.css" rel="stylesheet" />
+<link href="/css/Order/currentOrder.css" rel="stylesheet" />
+}
+
+
+<div class="cart-container">
+    <h2 class="title">Заказ №@Model.Id от @Model.DateOfCreate.ToShortDateString()</h2>
+
+    @if (Model.Games != null && Model.Games.Any())
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Сумма</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var boardGame in Model.Games)
+                {
+                    <tr class="board-game-item">
+                        <td>
+                            <a class="board-game-title" href="/BoardGame/BoardGame?Id=@boardGame.BoardGameId">@boardGame.BoardGameTitle</a>
+                        </td>
+                        <td>@boardGame.Price₽</td>
+                        <td>@boardGame.Quantity</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p class="cart-summary">Сумма заказа: @Model.Sum₽</p>
+        <p>Статус: <strong>@Model.Status</strong></p>
+
+        @if (!Model.IsDelivered && Model.IsAdmin)
+        {
+            <div class="add-board-game">
+                <a class="deliver-button" href="/Order/SetIsDelivered?OrderId=@Model.Id">Отметить как доставленный</a>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="empty-cart-message">Заказ пуст</p>
+    }
+</div>

@@ -9,7 +9,7 @@
 @if (Model.CanCreateAndDelete)
 {
     <div class="create-alert">
-        <a href="/Alert/Create">Create Alert</a>
+        <a href="/Alert/Create">Создать уведомление</a>
     </div>
 }
 
@@ -24,7 +24,7 @@
             @if (Model.CanCreateAndDelete)
             {
                 <div>
-                    <a href="/alert/delete?id=@alert.Id">delete</a>
+                    <a href="/alert/delete?id=@alert.Id">Удалить</a>
                 </div>
             }
         </div>

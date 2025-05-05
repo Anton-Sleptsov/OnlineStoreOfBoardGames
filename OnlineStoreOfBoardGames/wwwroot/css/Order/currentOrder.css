@@ -1,0 +1,73 @@
+﻿.cart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.title {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #333;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #e0e0e0;
+    text-align: left;
+}
+
+th {
+    background-color: #f7f7f7;
+    font-weight: 600;
+}
+
+.board-game-title {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.board-game-title:hover {
+    text-decoration: underline;
+}
+
+.cart-summary {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.add-board-game {
+    margin-top: 25px;
+}
+
+.deliver-button {
+    display: inline-block;
+    color: white;
+    background-color: #ef6747;
+    border: 1px solid #a5a5a5;
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+.deliver-button:hover {
+    background-color: #dd7e68;
+    color: white;
+    text-decoration: none;
+}
+
+.empty-cart-message {
+    font-style: italic;
+    color: #777;
+    margin-top: 20px;
+}

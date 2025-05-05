@@ -57,7 +57,7 @@
         </table>
         <p class="cart-summary">Сумма корзины: @Model.Sum</p>
         <a class="clear-cart" href="/Cart/DeleteCart">Очистить корзину</a>
-        <button class="order-button">Оформить заказ</button>
+        <button class="order-button" onclick="window.location.href='/Order/CreateOrder?cartId=@Model.Id'">Оформить заказ</button>
     }
     else
     {

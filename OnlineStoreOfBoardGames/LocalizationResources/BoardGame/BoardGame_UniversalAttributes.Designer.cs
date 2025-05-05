@@ -39,7 +39,7 @@ namespace OnlineStoreOfBoardGames.LocalizationResources.BoardGame {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PortalAboutEverything.LocalizationResources.BoardGame.BoardGame_UniversalAttribut" +
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("OnlineStoreOfBoardGames.LocalizationResources.BoardGame.BoardGame_UniversalAttribut" +
                             "es", typeof(BoardGame_UniversalAttributes).Assembly);
                     resourceMan = temp;
                 }

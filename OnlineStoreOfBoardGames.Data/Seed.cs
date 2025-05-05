@@ -51,8 +51,9 @@ namespace OnlineStoreOfBoardGames.Data
                         | Permission.CanCreateAndDeleteAlerts
                         | Permission.CanCreateAndUpdateBoardGames
                         | Permission.CanDeleteBoardGames
-                        | Permission.CanModerateReviewsOfBoardGames,
-                    Language = Language.En
+                        | Permission.CanModerateReviewsOfBoardGames
+                        | Permission.CanChangeOrderStatus,
+                    Language = Language.Ru
                 };
                 userRepository.Create(admin);
 

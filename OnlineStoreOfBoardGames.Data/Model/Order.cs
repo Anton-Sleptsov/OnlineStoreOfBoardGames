@@ -7,5 +7,7 @@
         public virtual List<OrderItem> Games { get; set; }
         public double Sum { get; set; }
         public bool IsDelivered { get; set; }
+        public DateTime DateOfCreate { get; set; }
+        public DateTime DateOfDelivery { get; set; }
     }
 }

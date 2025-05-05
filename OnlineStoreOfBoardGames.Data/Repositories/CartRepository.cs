@@ -21,6 +21,9 @@ namespace OnlineStoreOfBoardGames.Data.Repositories
             return cart;
         }
 
+        public Cart GetWithIncludes(int cartId)
+            => _dbSet.Include(c => c.Games).ThenInclude(ci => ci.BoardGame).First(x => x.Id == cartId);
+
         public bool CartForUserIsExist(int userId) =>
             _dbSet
             .Any(cart => cart.UserId == userId);

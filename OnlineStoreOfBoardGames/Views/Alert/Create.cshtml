@@ -5,14 +5,14 @@
 }
 
 <h1 class="page-title">
-    Alert Creating
+    Создание уведомления
 </h1>
 <form class="alert-form" method="post">
     <div class="form-group">
-        @Html.TextBoxFor(x => x.Text, new { placeholder = "Alert text", @class = "text-input" })
+        @Html.TextBoxFor(x => x.Text, new { placeholder = "Текст уведомления", @class = "text-input" })
     </div>
     <div class="form-group">
-        @Html.TextBoxFor(x => x.EndDate, new { @type = "date", placeholder = "end date", @class = "date-input" })
+        @Html.TextBoxFor(x => x.EndDate, new { @type = "date", placeholder = "Дата окончания", @class = "date-input" })
     </div>
     <div class="form-group">
         <input type="submit" value="Создать" class="submit-button" />

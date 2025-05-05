@@ -61,10 +61,11 @@ namespace OnlineStoreOfBoardGames.Models.ValidationAttributes
                 _isFew = true;
                 if (ErrorMessageResourceType is not null
                     && ErrorMessageResourceNameFew is not null)
-                {                   
-                    var property = ErrorMessageResourceType.GetProperty(ErrorMessageResourceNameFew);
-                    var valueOfProperty = property!.GetValue(null);
-                    _errorMessageTemplate = (string)valueOfProperty!;
+                {
+                    //var property = ErrorMessageResourceType.GetProperty(ErrorMessageResourceNameFew);
+                    //var valueOfProperty = property!.GetValue(null);
+                    //_errorMessageTemplate = (string)valueOfProperty!;
+                    _errorMessageTemplate = BoardGame_UniversalAttributes.TextInput_ValidationErrorMessageFew;
                 }
                 else
                 {

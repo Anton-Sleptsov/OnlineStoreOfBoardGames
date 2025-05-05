@@ -9,6 +9,7 @@
         CanEditPremission = 8,
         CanCreateAndUpdateBoardGames = 256,
         CanDeleteBoardGames = 512,
-        CanModerateReviewsOfBoardGames = 1024
+        CanModerateReviewsOfBoardGames = 1024,
+        CanChangeOrderStatus = 2048
     }
 }
