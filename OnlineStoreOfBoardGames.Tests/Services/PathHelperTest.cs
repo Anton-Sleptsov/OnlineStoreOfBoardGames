@@ -22,8 +22,8 @@ namespace OnlineStoreOfBoardGames.Tests.Services
         }
 
         [Test]
-        [TestCase(25, "C:\\project\\images\\BoardGame\\mainImage-25.jpg")]
-        [TestCase(995, "C:\\project\\images\\BoardGame\\mainImage-995.jpg")]
+        [TestCase(25, "C:\\project\\images\\ImagesOfGame\\mainImage-25.jpg")]
+        [TestCase(995, "C:\\project\\images\\ImagesOfGame\\mainImage-995.jpg")]
         public void GetPathToBoardGameMainImage(int boardGameId, string resultPath)
         {
             // Prepare
@@ -50,7 +50,7 @@ namespace OnlineStoreOfBoardGames.Tests.Services
             var result = _pathHelper.GetPathToBoardGameSideImage(5);
 
             // Assert
-            Assert.That(result, Is.EqualTo("C:\\project\\images\\BoardGame\\sideImage-5.jpg"));
+            Assert.That(result, Is.EqualTo("C:\\project\\images\\ImagesOfGame\\sideImage-5.jpg"));
         }
     }
 }
